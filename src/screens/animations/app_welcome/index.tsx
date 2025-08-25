@@ -155,7 +155,8 @@ const AppWelcomeAnimationScreen: React.FC<AppWelcomeAnimationScreenProps> = (pro
 			| 'repeat_&_sequence'
 			| 'pop_up'
 			| 'drag_box'
-			| 'progress_bar';
+			| 'progress_bar'
+			| 'animated_crousal';
 	}[] = [
 		{ title: 'Interpolate', type: 'interpolate' },
 		{ title: 'Animated Scroll Header', type: 'scroll_header' },
@@ -166,6 +167,7 @@ const AppWelcomeAnimationScreen: React.FC<AppWelcomeAnimationScreenProps> = (pro
 		{ title: 'Pop Up', type: 'pop_up' },
 		{ title: 'Drag Box', type: 'drag_box' },
 		{ title: 'Progress Bar', type: 'progress_bar' },
+		{ title: 'Animated Crousal', type: 'animated_crousal' },
 	];
 
 	return (

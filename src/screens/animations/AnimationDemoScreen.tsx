@@ -1,4 +1,5 @@
 import { RouteProp, useRoute } from '@react-navigation/native';
+import AnimatedCrousal from 'components/animations/AnimatedCrousal';
 import { AnimatedRangeBar } from 'components/animations/AnimatedRangeBar';
 import { AnimatedScrollHeader } from 'components/animations/AnimatedScrollHeader';
 import { DragBox } from 'components/animations/DragBox';
@@ -8,6 +9,7 @@ import { PopUpAnimation } from 'components/animations/PopUpAnimation';
 import { ProgressBar } from 'components/animations/ProgressBar';
 import { RepeatAndSequence } from 'components/animations/RepeatAndSequence';
 import { SlideAnimation } from 'components/animations/SlideAnimation';
+import BaseText from 'components/base_components/base_text';
 import React from 'react';
 import { View } from 'react-native';
 import { AppStackParamList } from 'types/navigation_types';
@@ -38,9 +40,9 @@ const AnimationDemoScreen: React.FC = () => {
 			case 'progress_bar':
 				return <ProgressBar />;
 			case 'animated_crousal':
-				return <ProgressBar />;
+				return <AnimatedCrousal />;
 			default:
-				return <View />;
+				return <BaseText>No animation here!</BaseText>;
 		}
 	};
 

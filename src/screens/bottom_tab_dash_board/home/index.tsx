@@ -5,14 +5,14 @@ import AnimatedLoaderButton from 'components/molecules/animated_loader_button';
 import React from 'react';
 import { ScrollView, StyleSheet, View } from 'react-native';
 import { MaterialBottomTabScreenProps } from 'react-native-paper';
-import { AppStackParamList, DashbordBottomTabBarParamList } from 'types/navigation_types';
+import { AppStackParamList, BottomTabNavigatorParamList } from 'types/navigation_types';
 import { AnalyticEvent } from 'utilities/analytic_event';
 import { SCREEN_WIDTH } from 'utilities/constants';
 import { ms, vs } from 'utilities/scale_utils';
 import { useFirebaseNotifications } from '../../../hooks/firebase/useFirebaseNotifications';
 // Make sure this path points to your actual Redux store file where RootState is defined
 
-type HomeScreenProps = MaterialBottomTabScreenProps<DashbordBottomTabBarParamList, 'HomeScreen'>;
+type HomeScreenProps = MaterialBottomTabScreenProps<BottomTabNavigatorParamList, 'HomeScreen'>;
 
 type TButton = { id: number; title: string };
 
@@ -81,7 +81,7 @@ const HomeScreen: React.FC<HomeScreenProps> = () => {
 				appStackParamList.navigate('AppWelcomeAnimationScreen');
 				return;
 			case 'Top Tab Bars':
-				appStackParamList.navigate('DashbordTopTabBarScreen');
+				appStackParamList.navigate('TopTabDashBoardScreen');
 				return;
 			case 'Device Contacts':
 				appStackParamList.navigate('ContactScreen');

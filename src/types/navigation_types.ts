@@ -1,6 +1,6 @@
 export type AppStackParamList = {
-	DashBoardScreen: undefined;
-	DashbordTopTabBarScreen: undefined;
+	BottomTabDashBoardScreen: undefined;
+	TopTabDashBoardScreen: undefined;
 	TodoScreen: {
 		id?: string;
 	};
@@ -30,13 +30,13 @@ export type AuthenticationStackParamList = {
 	SplashScreen: undefined;
 };
 
-export type DashbordBottomTabBarParamList = {
+export type BottomTabNavigatorParamList = {
 	HomeScreen: undefined;
 	ProfileScreen: undefined;
 	SettingsScreen: undefined;
 };
 
-export type DashbordTopTabBarParamList = {
+export type TopTabNavigatorParamList = {
 	TopTab1: undefined;
 	TopTab2: undefined;
 };

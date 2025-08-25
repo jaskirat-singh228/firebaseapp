@@ -5,16 +5,16 @@ import AnimatedLoaderButton from 'components/molecules/animated_loader_button';
 import { useDialog } from 'context/app_dialog_provider';
 import React from 'react';
 
-import { ScrollView, StyleSheet, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { MaterialBottomTabScreenProps, useTheme } from 'react-native-paper';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from 'store';
-import { DashbordBottomTabBarParamList } from 'types/navigation_types';
-import { ms, vs } from 'utilities/scale_utils';
+import { BottomTabNavigatorParamList } from 'types/navigation_types';
+import { vs } from 'utilities/scale_utils';
 import { logoutUser, showToast } from 'utilities/utils';
 
 type ProfileScreenProps = MaterialBottomTabScreenProps<
-	DashbordBottomTabBarParamList,
+	BottomTabNavigatorParamList,
 	'ProfileScreen'
 >;
 
@@ -49,32 +49,21 @@ const ProfileScreen: React.FC<ProfileScreenProps> = () => {
 	}, []);
 
 	return (
-		<ScrollView style={style.mainContainer}>
-			<View style={style.container}>
-				<BaseText
-					style={theme.fonts.displayMedium}
-				>{`Email: ${userData?.userEmail ?? ''}`}</BaseText>
-				<AnimatedLoaderButton
-					isLoading={false}
-					title={'Logout'}
-					onPress={handleLogoutClick}
-				/>
-			</View>
-		</ScrollView>
+		<View style={style.container}>
+			<BaseText
+				style={theme.fonts.displayMedium}
+			>{`Email: ${userData?.userEmail ?? ''}`}</BaseText>
+			<AnimatedLoaderButton isLoading={false} title={'Logout'} onPress={handleLogoutClick} />
+		</View>
 	);
 };
 export default ProfileScreen;
 
 const style = StyleSheet.create({
-	mainContainer: {
-		flex: 1,
-		width: '100%',
-		padding: ms(15),
-	},
 	container: {
-		height: '100%',
-		width: '100%',
+		flex: 1,
 		gap: vs(10),
 		alignItems: 'center',
+		justifyContent: 'center',
 	},
 });

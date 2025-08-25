@@ -6,10 +6,10 @@ import { TextInput as PaperTextInput, TextInputProps, useTheme } from 'react-nat
 import { style } from './style';
 
 export type BaseTextInputProps = TextInputProps & {
-	// status?: 'success' | 'error' | 'empty';
-	// labelValue?: string;
+	status?: 'success' | 'error' | 'empty';
+	labelValue?: string;
 	errorValue?: string;
-	// required?: boolean;ß
+	// required?: boolean;
 };
 
 const BaseTextInputComp: React.FC<BaseTextInputProps> = (props) => {

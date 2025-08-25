@@ -5,13 +5,13 @@ import { useTheme } from 'react-native-paper';
 import { useDispatch } from 'react-redux';
 import AnimationDemoScreen from 'screens/animations/AnimationDemoScreen';
 import AppWelcomeAnimationScreen from 'screens/animations/app_welcome';
-import DashboardScreen from 'screens/dashboard';
+import BottomTabDashBoardScreen from 'screens/bottom_tab_dash_board';
 import ContactScreen from 'screens/device_contacts';
 import KeyBoardControllerScreen from 'screens/keyboard_controller';
 import NativeModuleScreen from 'screens/native_modules';
 import ReducerScreen from 'screens/reducer';
 import TodoScreen from 'screens/todos';
-import DashbordTopTabBarScreen from 'screens/top_tabs';
+import TopTabDashBoardScreen from 'screens/top_tab_dash_board';
 import { setShowPrivacyGuard } from 'store/slices/app_data_slice';
 import { AppStackParamList } from 'types/navigation_types';
 import { IS_ANDROID, IS_IOS } from 'utilities/constants';
@@ -53,8 +53,8 @@ const AppNavigator: React.FC = () => {
 				statusBarBackgroundColor: theme.colors.statusBar.backgroundColor,
 			}}
 		>
-			<Stack.Screen name={'DashBoardScreen'} component={DashboardScreen} />
-			<Stack.Screen name={'DashbordTopTabBarScreen'} component={DashbordTopTabBarScreen} />
+			<Stack.Screen name={'BottomTabDashBoardScreen'} component={BottomTabDashBoardScreen} />
+			<Stack.Screen name={'TopTabDashBoardScreen'} component={TopTabDashBoardScreen} />
 			<Stack.Screen name={'TodoScreen'} component={TodoScreen} />
 			<Stack.Screen name={'NativeModuleScreen'} component={NativeModuleScreen} />
 			<Stack.Screen name={'ReducerScreen'} component={ReducerScreen} />

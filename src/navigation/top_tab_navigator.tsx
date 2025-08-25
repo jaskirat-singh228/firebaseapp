@@ -1,13 +1,13 @@
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import FullScreenContainer from 'components/hoc/full_screen_container';
 import { BackWithTitleHeader } from 'components/molecules/back_with_title_view';
-import TopTab1 from 'screens/top_tabs/top_tab1/TopTab1';
-import TopTab2 from 'screens/top_tabs/top_tab2/TopTab2';
-import { DashbordTopTabBarParamList } from 'types/navigation_types';
+import TopTab1 from 'screens/top_tab_dash_board/top_tab1/TopTab1';
+import TopTab2 from 'screens/top_tab_dash_board/top_tab2/TopTab2';
+import { TopTabNavigatorParamList } from 'types/navigation_types';
 
-const Tab = createMaterialTopTabNavigator<DashbordTopTabBarParamList>();
+const Tab = createMaterialTopTabNavigator<TopTabNavigatorParamList>();
 
-const ToptabsDashBoardNavigator = () => {
+const TopTabNavigator = () => {
 	return (
 		<FullScreenContainer>
 			<BackWithTitleHeader title='Top Tab Bars' />
@@ -19,4 +19,4 @@ const ToptabsDashBoardNavigator = () => {
 	);
 };
 
-export default ToptabsDashBoardNavigator;
+export default TopTabNavigator;
