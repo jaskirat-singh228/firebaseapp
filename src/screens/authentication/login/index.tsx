@@ -3,15 +3,15 @@ import { GoogleSignin } from '@react-native-google-signin/google-signin';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import BaseTextInput from 'components/base_components/base_text_input';
 import AnimatedLoaderButton from 'components/molecules/animated_loader_button';
+import { useFirebaseGoogleSignIn } from 'hooks/firebase/authentication/useFirebaseGoogleSignUp';
+import { useFirebaseLogin } from 'hooks/firebase/authentication/useFirebaseLogin';
 import React from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { KeyboardAvoidingView, ScrollView, StyleSheet } from 'react-native';
 import { TextInput, useTheme } from 'react-native-paper';
 import { AuthenticationStackParamList } from 'types/navigation_types';
 import { ms, vs } from 'utilities/scale_utils';
-import { useFirebaseGoogleSignIn } from '../../../hooks/firebase/authentication/useFirebaseGoogleSignUp';
-import { useFirebaseLogin } from '../../../hooks/firebase/authentication/useFirebaseLogin';
-// import NativeLocalStorage from '../../../specs/NativeLocalStorage';
+// import NativeLocalStorage from 'specs/NativeLocalStorage';
 
 type LoginScreenProps = NativeStackScreenProps<AuthenticationStackParamList, 'LoginScreen'>;
 

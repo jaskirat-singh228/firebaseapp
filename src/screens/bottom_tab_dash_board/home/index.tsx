@@ -2,6 +2,7 @@ import crashlytics from '@react-native-firebase/crashlytics';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import AnimatedLoaderButton from 'components/molecules/animated_loader_button';
+import { useFirebaseNotifications } from 'hooks/firebase/useFirebaseNotifications';
 import React from 'react';
 import { ScrollView, StyleSheet, View } from 'react-native';
 import { MaterialBottomTabScreenProps } from 'react-native-paper';
@@ -9,7 +10,6 @@ import { AppStackParamList, BottomTabNavigatorParamList } from 'types/navigation
 import { AnalyticEvent } from 'utilities/analytic_event';
 import { SCREEN_WIDTH } from 'utilities/constants';
 import { ms, vs } from 'utilities/scale_utils';
-import { useFirebaseNotifications } from '../../../hooks/firebase/useFirebaseNotifications';
 // Make sure this path points to your actual Redux store file where RootState is defined
 
 type HomeScreenProps = MaterialBottomTabScreenProps<BottomTabNavigatorParamList, 'HomeScreen'>;

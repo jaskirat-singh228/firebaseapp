@@ -4,13 +4,13 @@ import BaseTextInput from 'components/base_components/base_text_input';
 import FullScreenContainer from 'components/hoc/full_screen_container';
 import AnimatedLoaderButton from 'components/molecules/animated_loader_button';
 import { BackWithTitleHeader } from 'components/molecules/back_with_title_view';
+import { useFirebaseSignUp } from 'hooks/firebase/authentication/useFirebseSignUp';
 import React from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { KeyboardAvoidingView, ScrollView, StyleSheet } from 'react-native';
 import { TextInput, useTheme } from 'react-native-paper';
 import { AuthenticationStackParamList } from 'types/navigation_types';
 import { ms, vs } from 'utilities/scale_utils';
-import { useFirebaseSignUp } from '../../../hooks/firebase/authentication/useFirebseSignUp';
 import { TFormData } from '../login';
 
 type SignUpScreenProps = NativeStackScreenProps<AuthenticationStackParamList, 'SignUpScreen'>;

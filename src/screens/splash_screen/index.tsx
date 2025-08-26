@@ -118,7 +118,7 @@ const SplashScreen: React.FC<SplashScreenProps> = (props) => {
 						fontWeight: 'bold',
 					}}
 				>
-					{'My Firebase App'}
+					{'My Learning App'}
 				</BaseText>
 			</Animated.View>
 			<Animated.View

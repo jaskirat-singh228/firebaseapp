@@ -5,8 +5,8 @@ import { BackWithTitleHeader } from 'components/molecules/back_with_title_view';
 import React from 'react';
 import { View } from 'react-native';
 import { AppStackParamList } from 'types/navigation_types';
-// import NativeLocalStorage from '../../specs/NativeLocalStorage';
-// import NativeToast from '../../specs/NativeToast';
+// import NativeLocalStorage from 'specs/NativeLocalStorage';
+// import NativeToast from 'specs/NativeToast';
 
 type NativeModuleScreenProps = NativeStackScreenProps<AppStackParamList, 'NativeModuleScreen'>;
 

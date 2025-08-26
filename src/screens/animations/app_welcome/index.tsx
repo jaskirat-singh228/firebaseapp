@@ -216,7 +216,7 @@ const AppWelcomeAnimationScreen: React.FC<AppWelcomeAnimationScreenProps> = (pro
 							width: SCREEN_WIDTH,
 						},
 					]}
-					source={require('../../../assets/images/balloons.png')}
+					source={require('assets/images/balloons.png')}
 				/>
 			</View>
 			<Animated.View
@@ -236,7 +236,7 @@ const AppWelcomeAnimationScreen: React.FC<AppWelcomeAnimationScreenProps> = (pro
 							borderRadius: theme.radius.circle,
 						},
 					]}
-					source={require('../../../assets/images/fab-button.png')}
+					source={require('assets/images/fab-button.png')}
 				/>
 				<Animated.Text
 					style={[

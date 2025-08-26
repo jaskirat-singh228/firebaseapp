@@ -8,6 +8,14 @@ import FullScreenContainer from 'components/hoc/full_screen_container';
 import AnimatedLoaderButton from 'components/molecules/animated_loader_button';
 import { BackWithTitleHeader } from 'components/molecules/back_with_title_view';
 import BounceView from 'components/molecules/bounce_view';
+import {
+	addAndReplaceOfflineTodo,
+	deleteLocalTodo,
+	editLocalTodo,
+	getLocalTodos,
+	getUnsyncedTodos,
+	updateLocalTodos,
+} from 'local_storage/SQLite/todosRepository';
 import React from 'react';
 import { FlatList, TextInput } from 'react-native';
 import { Icon, useTheme } from 'react-native-paper';
@@ -16,14 +24,6 @@ import { MaterialIcon } from 'utilities/constants';
 import { ms } from 'utilities/scale_utils';
 import { showToast } from 'utilities/utils';
 import { v4 as UUIDv4 } from 'uuid';
-import {
-	addAndReplaceOfflineTodo,
-	deleteLocalTodo,
-	editLocalTodo,
-	getLocalTodos,
-	getUnsyncedTodos,
-	updateLocalTodos,
-} from '../../local_storage/SQLite/todosRepository';
 
 type TodoScreenProps = NativeStackScreenProps<AppStackParamList, 'TodoScreen'>;
 
