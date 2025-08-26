@@ -11,7 +11,6 @@ import { RepeatAndSequence } from 'components/animations/RepeatAndSequence';
 import { SlideAnimation } from 'components/animations/SlideAnimation';
 import BaseText from 'components/base_components/base_text';
 import React from 'react';
-import { View } from 'react-native';
 import { AppStackParamList } from 'types/navigation_types';
 
 type AnimationDemoRouteProp = RouteProp<AppStackParamList, 'AnimationDemoScreen'>;
@@ -46,7 +45,7 @@ const AnimationDemoScreen: React.FC = () => {
 		}
 	};
 
-	return <View style={{ flex: 1 }}>{renderContent()}</View>;
+	return renderContent();
 };
 
 export default AnimationDemoScreen;

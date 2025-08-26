@@ -1,5 +1,4 @@
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import BaseText from 'components/base_components/base_text';
 import AnimatedLoaderButton from 'components/molecules/animated_loader_button';
 import React from 'react';
 import { View } from 'react-native';
@@ -45,7 +44,7 @@ const AppWelcomeAnimationScreen: React.FC<AppWelcomeAnimationScreenProps> = (pro
 
 	const initializeAnimation = () => {
 		welcomeText.value = withDelay(
-			500,
+			200,
 			withTiming(SCREEN_HEIGHT * 0.48, { duration: 2000 }, () => {
 				worldText.value = withTiming(1, { duration: 2000 }, () => {
 					showBalloons();
@@ -179,7 +178,7 @@ const AppWelcomeAnimationScreen: React.FC<AppWelcomeAnimationScreenProps> = (pro
 					backgroundColor: theme.colors.background,
 				}}
 			>
-				<BaseText>{`Timer: ${timer}`}</BaseText>
+				{/* <BaseText>{`Timer: ${timer}`}</BaseText> */}
 				<Animated.Text
 					style={[
 						theme.fonts.displayMedium,
@@ -199,7 +198,7 @@ const AppWelcomeAnimationScreen: React.FC<AppWelcomeAnimationScreenProps> = (pro
 						worldAnimation,
 						{
 							position: 'absolute',
-							top: SCREEN_HEIGHT / 2 + 30,
+							top: SCREEN_HEIGHT / 2 + 20,
 							color: dark
 								? theme.colors.textColor.white
 								: theme.colors.textColor.black,
@@ -210,7 +209,13 @@ const AppWelcomeAnimationScreen: React.FC<AppWelcomeAnimationScreenProps> = (pro
 				</Animated.Text>
 				<Animated.Image
 					resizeMode={'contain'}
-					style={[balloonsAnimation, { height: SCREEN_HEIGHT, width: SCREEN_WIDTH }]}
+					style={[
+						balloonsAnimation,
+						{
+							height: SCREEN_HEIGHT,
+							width: SCREEN_WIDTH,
+						},
+					]}
 					source={require('../../../assets/images/balloons.png')}
 				/>
 			</View>

@@ -38,7 +38,7 @@ export const InterPolateAnimation = () => {
 	return (
 		<FullScreenContainer>
 			<BackWithTitleHeader title='Interpolation Animation' />
-			<View style={[globalStyle.screenContainer, { alignItems: undefined }]}>
+			<View style={[globalStyle.screenContainer, { alignItems: 'center' }]}>
 				<Animated.View
 					style={[
 						{

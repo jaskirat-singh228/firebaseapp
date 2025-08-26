@@ -2,9 +2,9 @@ import { MaterialTopTabScreenProps } from '@react-navigation/material-top-tabs';
 import BaseText from 'components/base_components/base_text';
 import React from 'react';
 import { ScrollView } from 'react-native';
-import { DashbordTopTabBarParamList } from 'types/navigation_types';
+import { TopTabNavigatorParamList } from 'types/navigation_types';
 
-type TopTab2Props = MaterialTopTabScreenProps<DashbordTopTabBarParamList, 'TopTab2'>;
+type TopTab2Props = MaterialTopTabScreenProps<TopTabNavigatorParamList, 'TopTab2'>;
 
 const TopTab2: React.FC<TopTab2Props> = () => {
 	return (
