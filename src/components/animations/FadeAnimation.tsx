@@ -6,6 +6,7 @@ import Animated, { useAnimatedStyle, useSharedValue, withTiming } from 'react-na
 import React, { useState } from 'react';
 import { View } from 'react-native';
 import { globalStyle } from 'utilities/global_styles';
+import { ms } from 'utilities/scale_utils';
 
 export const FadeAnimation = () => {
 	const fadeAnimation = useSharedValue(0);
@@ -26,7 +27,12 @@ export const FadeAnimation = () => {
 	return (
 		<FullScreenContainer>
 			<BackWithTitleHeader title='Fade Animation' />
-			<View style={globalStyle.screenContainer}>
+			<View
+				style={[
+					globalStyle.screenContainer,
+					{ alignItems: 'center', justifyContent: 'center', gap: ms(20) },
+				]}
+			>
 				<Animated.View
 					style={[{ backgroundColor: 'red', height: 200, width: 200 }, animatedStyle]}
 				/>

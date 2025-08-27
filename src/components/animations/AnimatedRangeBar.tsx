@@ -1,3 +1,4 @@
+import BaseText from 'components/base_components/base_text';
 import FullScreenContainer from 'components/hoc/full_screen_container';
 import { BackWithTitleHeader } from 'components/molecules/back_with_title_view';
 import React from 'react';
@@ -51,12 +52,18 @@ export const AnimatedRangeBar = () => {
 	return (
 		<FullScreenContainer>
 			<BackWithTitleHeader title='Animated Range Bar' />
-			<View style={globalStyle.screenContainer}>
+			<View
+				style={[
+					globalStyle.screenContainer,
+					{ alignItems: 'center', justifyContent: 'center', gap: ms(20) },
+				]}
+			>
+				<BaseText style={theme.fonts.displayLarge}>Scroll the Boll</BaseText>
 				<GestureDetector gesture={panGesture}>
 					<View
 						style={{
 							width: TRACK_WIDTH,
-							height: ms(30),
+							height: ms(20),
 							borderRadius: theme.radius.circle,
 							backgroundColor: theme.colors.backdrop,
 							justifyContent: 'center',
@@ -79,8 +86,6 @@ export const AnimatedRangeBar = () => {
 							style={[
 								{
 									position: 'absolute',
-									top: -ms(5),
-									left: -ms(10),
 									height: POINT_SIZE,
 									width: POINT_SIZE,
 									backgroundColor: theme.colors.primary,

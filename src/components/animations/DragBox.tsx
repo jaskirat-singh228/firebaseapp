@@ -3,10 +3,13 @@ import FullScreenContainer from 'components/hoc/full_screen_container';
 import { BackWithTitleHeader } from 'components/molecules/back_with_title_view';
 import { View } from 'react-native';
 import { Gesture, GestureDetector } from 'react-native-gesture-handler';
+import { useTheme } from 'react-native-paper';
 import Animated, { useAnimatedStyle, useSharedValue, withSpring } from 'react-native-reanimated';
+import { ms } from 'react-native-size-matters';
 import { globalStyle } from 'utilities/global_styles';
 
 export const DragBox = () => {
+	const theme = useTheme();
 	const translateX = useSharedValue(0);
 	const translateY = useSharedValue(0);
 
@@ -33,13 +36,18 @@ export const DragBox = () => {
 	return (
 		<FullScreenContainer>
 			<BackWithTitleHeader title='Drag Box' />
-			<View style={globalStyle.screenContainer}>
+			<View
+				style={[
+					globalStyle.screenContainer,
+					{ alignItems: 'center', justifyContent: 'center', gap: ms(20) },
+				]}
+			>
+				<BaseText style={theme.fonts.displayLarge}>{'Drag the box'}</BaseText>
 				<GestureDetector gesture={pan}>
 					<Animated.View
 						style={[{ width: 100, height: 100, backgroundColor: 'red' }, animatedStyle]}
 					></Animated.View>
 				</GestureDetector>
-				<BaseText>{'Drag the box'}</BaseText>
 			</View>
 		</FullScreenContainer>
 	);

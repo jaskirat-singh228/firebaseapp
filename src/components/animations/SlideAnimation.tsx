@@ -5,6 +5,7 @@ import Animated, { useAnimatedStyle, useSharedValue, withTiming } from 'react-na
 
 import React, { useState } from 'react';
 import { View } from 'react-native';
+import { ms } from 'react-native-size-matters';
 import { SCREEN_WIDTH } from 'utilities/constants';
 import { globalStyle } from 'utilities/global_styles';
 
@@ -27,7 +28,12 @@ export const SlideAnimation = () => {
 	return (
 		<FullScreenContainer>
 			<BackWithTitleHeader title='Slide Animation' />
-			<View style={globalStyle.screenContainer}>
+			<View
+				style={[
+					globalStyle.screenContainer,
+					{ alignItems: 'center', justifyContent: 'center', gap: ms(20) },
+				]}
+			>
 				<Animated.View
 					style={[
 						{

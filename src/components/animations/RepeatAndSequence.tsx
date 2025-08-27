@@ -38,7 +38,12 @@ export const RepeatAndSequence = () => {
 	return (
 		<FullScreenContainer>
 			<BackWithTitleHeader title='Repeat And Sequence Animation' />
-			<View style={globalStyle.screenContainer}>
+			<View
+				style={[
+					globalStyle.screenContainer,
+					{ alignItems: 'center', justifyContent: 'center', gap: ms(20) },
+				]}
+			>
 				<Animated.View
 					style={[
 						{ height: BOX_SIZE, width: BOX_SIZE, backgroundColor: 'red' },

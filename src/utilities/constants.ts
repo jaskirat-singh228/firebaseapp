@@ -78,4 +78,5 @@ export const MaterialIcon = {
 	TIMER_SAND: 'timer-sand',
 	PROGRESS_CLOCK: 'progress-clock',
 	CHECK: 'check',
+	ORBIT_VARIENT: 'orbit-variant',
 };

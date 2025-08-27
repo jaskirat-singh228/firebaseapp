@@ -3,7 +3,10 @@ import BottomTabNavigator from 'navigation/bottom_tab_navigator';
 import React from 'react';
 import { AppStackParamList } from 'types/navigation_types';
 
-type BottomTabNavigatorProps = NativeStackScreenProps<AppStackParamList, 'BottomTabNavigator'>;
+type BottomTabNavigatorProps = NativeStackScreenProps<
+	AppStackParamList,
+	'BottomTabDashBoardScreen'
+>;
 
 const BottomTabDashBoardScreen: React.FC<BottomTabNavigatorProps> = () => {
 	return <BottomTabNavigator />;

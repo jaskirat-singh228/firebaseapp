@@ -41,7 +41,7 @@ export const AnimatedScrollHeader = () => {
 				style={[
 					{
 						alignItems: 'center',
-						backgroundColor: '#6200EE',
+						backgroundColor: 'red',
 						borderBottomLeftRadius: 20,
 						borderBottomRightRadius: 20,
 						justifyContent: 'center',

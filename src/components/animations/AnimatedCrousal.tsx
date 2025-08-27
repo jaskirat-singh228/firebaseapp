@@ -6,6 +6,12 @@ import { FlatList, View } from 'react-native';
 import { useTheme } from 'react-native-paper';
 import { ms } from 'react-native-size-matters';
 
+export type TCrousal = {
+	id: number;
+	url: string;
+	type: string;
+};
+
 const AnimatedCrousal = () => {
 	const theme = useTheme();
 	const onViewRef = React.useRef(({ viewableItems }: any) => {
@@ -15,7 +21,23 @@ const AnimatedCrousal = () => {
 	});
 	const [currentIndex, setCurrentIndex] = React.useState<number>(0);
 
-	const list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+	const list = [
+		{
+			id: 1,
+			url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3',
+			type: 'Audio',
+		},
+		{
+			id: 2,
+			url: 'https://www.w3schools.com/html/mov_bbb.mp4',
+			type: 'Video',
+		},
+		{
+			id: 3,
+			url: 'https://www.w3schools.com/w3images/lights.jpg',
+			type: 'Image',
+		},
+	];
 
 	return (
 		<FullScreenContainer>
@@ -30,7 +52,7 @@ const AnimatedCrousal = () => {
 					horizontal
 					pagingEnabled
 					showsHorizontalScrollIndicator={false}
-					keyExtractor={(item) => item.toString()}
+					keyExtractor={(item) => item?.id.toString()}
 					onViewableItemsChanged={onViewRef.current}
 					renderItem={({ item, index }) => (
 						<AnimatedCrousalItem
@@ -47,9 +69,9 @@ const AnimatedCrousal = () => {
 						justifyContent: 'center',
 					}}
 				>
-					{list.map((item: number, index: number) => (
+					{list.map((item: TCrousal, index: number) => (
 						<View
-							key={item}
+							key={item.id}
 							style={{
 								height: currentIndex === index ? ms(20) : ms(10),
 								width: currentIndex === index ? ms(20) : ms(10),

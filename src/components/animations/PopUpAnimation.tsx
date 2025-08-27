@@ -29,7 +29,12 @@ export const PopUpAnimation = () => {
 	return (
 		<FullScreenContainer>
 			<BackWithTitleHeader title='Pop-Up Animation' />
-			<View style={globalStyle.screenContainer}>
+			<View
+				style={[
+					globalStyle.screenContainer,
+					{ alignItems: 'center', justifyContent: 'center', gap: ms(20) },
+				]}
+			>
 				<Animated.View
 					style={[
 						{ height: BOX_SIZE, width: BOX_SIZE, backgroundColor: 'red' },

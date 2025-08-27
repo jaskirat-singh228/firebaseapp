@@ -11,6 +11,7 @@ import Animated, {
 } from 'react-native-reanimated';
 import { SCREEN_WIDTH } from 'utilities/constants';
 import { globalStyle } from 'utilities/global_styles';
+import { ms } from 'utilities/scale_utils';
 
 const BOX_SIZE = 150;
 
@@ -38,7 +39,12 @@ export const InterPolateAnimation = () => {
 	return (
 		<FullScreenContainer>
 			<BackWithTitleHeader title='Interpolation Animation' />
-			<View style={[globalStyle.screenContainer, { alignItems: 'center' }]}>
+			<View
+				style={[
+					globalStyle.screenContainer,
+					{ alignItems: 'center', justifyContent: 'center', gap: ms(20) },
+				]}
+			>
 				<Animated.View
 					style={[
 						{
