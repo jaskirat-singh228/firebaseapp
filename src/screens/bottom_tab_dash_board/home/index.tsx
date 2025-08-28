@@ -121,5 +121,6 @@ const style = StyleSheet.create({
 		width: '100%',
 		gap: vs(10),
 		alignItems: 'center',
+		paddingBottom: ms(100),
 	},
 });

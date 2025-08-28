@@ -10,9 +10,13 @@ export const { height: WINDOW_HEIGHT, width: WINDOW_WIDTH } = Dimensions.get('wi
 export const BASE_URL = 'http://192.168.1.244:6555/pcs/api';
 export const PAGE_SIZE = 15;
 
+// Roboto fontFamily
 export const FONT_REGULAR = 'Roboto-Regular';
-export const FONT_SEMI_BOLD = 'Roboto-Medium';
 export const FONT_BOLD = 'Roboto-Bold';
+
+// jsMath fontFamily
+export const JS_MATH_CMBX10 = 'jsMath-cmbx10';
+export const JS_MATH_CMMI10 = 'jsMath-cmmi10';
 
 export const BottomTabBarIconSize = ms(24);
 export const BottomTabBarLabelSize = ms(12);

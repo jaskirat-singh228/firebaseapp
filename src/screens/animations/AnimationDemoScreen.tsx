@@ -4,9 +4,9 @@ import { AnimatedRangeBar } from 'components/animations/AnimatedRangeBar';
 import { AnimatedScrollHeader } from 'components/animations/AnimatedScrollHeader';
 import { DragBox } from 'components/animations/DragBox';
 import { FadeAnimation } from 'components/animations/FadeAnimation';
+import { InstagramStoryProgress } from 'components/animations/InstagramStoryProgress';
 import { InterPolateAnimation } from 'components/animations/InterPolateAnimation';
 import { PopUpAnimation } from 'components/animations/PopUpAnimation';
-import { ProgressBar } from 'components/animations/ProgressBar';
 import { RepeatAndSequence } from 'components/animations/RepeatAndSequence';
 import { SlideAnimation } from 'components/animations/SlideAnimation';
 import BaseText from 'components/base_components/base_text';
@@ -37,7 +37,7 @@ const AnimationDemoScreen: React.FC = () => {
 			case 'drag_box':
 				return <DragBox />;
 			case 'progress_bar':
-				return <ProgressBar />;
+				return <InstagramStoryProgress />;
 			case 'animated_crousal':
 				return <AnimatedCrousal />;
 			default:

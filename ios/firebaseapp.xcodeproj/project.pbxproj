@@ -13,6 +13,13 @@
 		7E6A47572E545FF1008A5FE3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7E6A47562E545FF1008A5FE3 /* GoogleService-Info.plist */; };
 		7E8BC9262E53553A0038DDF6 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		068DEB4B04844B55BC1E40E9 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 77714EEAE53E489B8A074113 /* Roboto-Bold.ttf */; };
+		0EA09816288943C092C9C0DF /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5ADAA7E0E28642538A48A21B /* Roboto-Light.ttf */; };
+		E0C4BC553735425D82A77F81 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 199D04DAF908471C98F819CB /* Roboto-Medium.ttf */; };
+		783386285B224CBD8FB2A9AD /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0BC7B6AA156E4530ABE5C08B /* Roboto-Regular.ttf */; };
+		3AC276F85B644204BCB6F078 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 47C23E2B7D5B46FEA6666ACD /* Roboto-Thin.ttf */; };
+		ABDA12AA10AE4B8086A3D636 /* jsMath-cmbx10.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 89F773C0BC2F4357835AFAAE /* jsMath-cmbx10.ttf */; };
+		266FEF2280144BED98B360AE /* jsMath-cmmi10.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4F4614BDF20F4735998BD38C /* jsMath-cmmi10.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +35,13 @@
 		D07B4F91E8B67245ECC14122 /* Pods-firebaseapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-firebaseapp.debug.xcconfig"; path = "Target Support Files/Pods-firebaseapp/Pods-firebaseapp.debug.xcconfig"; sourceTree = "<group>"; };
 		EAA6F19A506EF641587FF91E /* Pods_firebaseapp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_firebaseapp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		77714EEAE53E489B8A074113 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; name = "Roboto-Bold.ttf"; path = "../src/assets/fonts/Roboto-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		5ADAA7E0E28642538A48A21B /* Roboto-Light.ttf */ = {isa = PBXFileReference; name = "Roboto-Light.ttf"; path = "../src/assets/fonts/Roboto-Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		199D04DAF908471C98F819CB /* Roboto-Medium.ttf */ = {isa = PBXFileReference; name = "Roboto-Medium.ttf"; path = "../src/assets/fonts/Roboto-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		0BC7B6AA156E4530ABE5C08B /* Roboto-Regular.ttf */ = {isa = PBXFileReference; name = "Roboto-Regular.ttf"; path = "../src/assets/fonts/Roboto-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		47C23E2B7D5B46FEA6666ACD /* Roboto-Thin.ttf */ = {isa = PBXFileReference; name = "Roboto-Thin.ttf"; path = "../src/assets/fonts/Roboto-Thin.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		89F773C0BC2F4357835AFAAE /* jsMath-cmbx10.ttf */ = {isa = PBXFileReference; name = "jsMath-cmbx10.ttf"; path = "../src/assets/fonts/jsMath-cmbx10.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		4F4614BDF20F4735998BD38C /* jsMath-cmmi10.ttf */ = {isa = PBXFileReference; name = "jsMath-cmmi10.ttf"; path = "../src/assets/fonts/jsMath-cmmi10.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +94,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
+				CE2DCCCC68B642BEA3CB9767 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -102,6 +117,21 @@
 			);
 			path = Pods;
 			sourceTree = "<group>";
+		};
+		CE2DCCCC68B642BEA3CB9767 /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				77714EEAE53E489B8A074113 /* Roboto-Bold.ttf */,
+				5ADAA7E0E28642538A48A21B /* Roboto-Light.ttf */,
+				199D04DAF908471C98F819CB /* Roboto-Medium.ttf */,
+				0BC7B6AA156E4530ABE5C08B /* Roboto-Regular.ttf */,
+				47C23E2B7D5B46FEA6666ACD /* Roboto-Thin.ttf */,
+				89F773C0BC2F4357835AFAAE /* jsMath-cmbx10.ttf */,
+				4F4614BDF20F4735998BD38C /* jsMath-cmmi10.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -169,6 +199,13 @@
 				7E6A47572E545FF1008A5FE3 /* GoogleService-Info.plist in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				068DEB4B04844B55BC1E40E9 /* Roboto-Bold.ttf in Resources */,
+				0EA09816288943C092C9C0DF /* Roboto-Light.ttf in Resources */,
+				E0C4BC553735425D82A77F81 /* Roboto-Medium.ttf in Resources */,
+				783386285B224CBD8FB2A9AD /* Roboto-Regular.ttf in Resources */,
+				3AC276F85B644204BCB6F078 /* Roboto-Thin.ttf in Resources */,
+				ABDA12AA10AE4B8086A3D636 /* jsMath-cmbx10.ttf in Resources */,
+				266FEF2280144BED98B360AE /* jsMath-cmmi10.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

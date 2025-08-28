@@ -165,7 +165,7 @@ const AppWelcomeAnimationScreen: React.FC<AppWelcomeAnimationScreenProps> = (pro
 		{ title: 'Repeat and Sequence', type: 'repeat_&_sequence' },
 		{ title: 'Pop Up', type: 'pop_up' },
 		{ title: 'Drag Box', type: 'drag_box' },
-		{ title: 'Progress Bar', type: 'progress_bar' },
+		{ title: 'Instagram Story Progress', type: 'progress_bar' },
 		{ title: 'Animated Crousal', type: 'animated_crousal' },
 	];
 

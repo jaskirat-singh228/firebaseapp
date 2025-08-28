@@ -115,7 +115,6 @@ const SplashScreen: React.FC<SplashScreenProps> = (props) => {
 						color: TO_COLOR,
 						fontSize: ms(40),
 						fontFamily: FONT_BOLD,
-						fontWeight: 'bold',
 					}}
 				>
 					{'My Learning App'}
@@ -136,7 +135,6 @@ const SplashScreen: React.FC<SplashScreenProps> = (props) => {
 						color: TO_COLOR,
 						fontSize: ms(25),
 						fontFamily: FONT_BOLD,
-						fontWeight: 'bold',
 					}}
 				>
 					{'A Demo App'}

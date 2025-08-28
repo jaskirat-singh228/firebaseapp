@@ -6,11 +6,32 @@ import { FlatList, View } from 'react-native';
 import { useTheme } from 'react-native-paper';
 import { ms } from 'react-native-size-matters';
 
-export type TCrousal = {
+export type TUrlVideoItem = {
 	id: number;
 	url: string;
 	type: string;
 };
+
+export const urlList = [
+	{
+		id: 1,
+		url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3',
+		type: 'Audio',
+		duration: 367800,
+	},
+	{
+		id: 2,
+		url: 'https://www.w3schools.com/html/mov_bbb.mp4',
+		type: 'Video',
+		duration: 10000,
+	},
+	{
+		id: 3,
+		url: 'https://www.w3schools.com/w3images/lights.jpg',
+		type: 'Image',
+		duration: 5000,
+	},
+];
 
 const AnimatedCrousal = () => {
 	const theme = useTheme();
@@ -21,30 +42,12 @@ const AnimatedCrousal = () => {
 	});
 	const [currentIndex, setCurrentIndex] = React.useState<number>(0);
 
-	const list = [
-		{
-			id: 1,
-			url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3',
-			type: 'Audio',
-		},
-		{
-			id: 2,
-			url: 'https://www.w3schools.com/html/mov_bbb.mp4',
-			type: 'Video',
-		},
-		{
-			id: 3,
-			url: 'https://www.w3schools.com/w3images/lights.jpg',
-			type: 'Image',
-		},
-	];
-
 	return (
 		<FullScreenContainer>
 			<BackWithTitleHeader title='Animated Crousal' />
 			<View>
 				<FlatList
-					data={list}
+					data={urlList}
 					contentContainerStyle={{
 						justifyContent: 'center',
 						paddingVertical: ms(40),
@@ -69,7 +72,7 @@ const AnimatedCrousal = () => {
 						justifyContent: 'center',
 					}}
 				>
-					{list.map((item: TCrousal, index: number) => (
+					{urlList.map((item: TUrlVideoItem, index: number) => (
 						<View
 							key={item.id}
 							style={{

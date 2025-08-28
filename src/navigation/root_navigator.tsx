@@ -64,19 +64,15 @@ const RootNavigator: React.FC = () => {
 				fonts: {
 					regular: {
 						fontFamily: theme.fonts.regular.fontFamily,
-						fontWeight: 'normal',
 					},
 					medium: {
 						fontFamily: theme.fonts.semiBold.fontFamily,
-						fontWeight: 'normal',
 					},
 					bold: {
 						fontFamily: theme.fonts.bold.fontFamily,
-						fontWeight: 'bold',
 					},
 					heavy: {
 						fontFamily: theme.fonts.bold.fontFamily,
-						fontWeight: 'bold',
 					},
 				},
 			}}

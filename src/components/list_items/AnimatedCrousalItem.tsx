@@ -1,4 +1,4 @@
-import { TCrousal } from 'components/animations/AnimatedCrousal';
+import { TUrlVideoItem } from 'components/animations/AnimatedCrousal';
 import BaseImageView from 'components/base_components/base_image_view';
 import BaseText from 'components/base_components/base_text';
 import React from 'react';
@@ -18,13 +18,16 @@ import { MaterialIcon, SCREEN_HEIGHT, SCREEN_WIDTH } from 'utilities/constants';
 
 const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
 
+export const CARD_HEIGHT = SCREEN_HEIGHT * 0.5;
+export const CARD_WIDTH = SCREEN_WIDTH * 0.8;
+
 export const AnimatedCrousalItem = ({
 	item,
 	index,
 	theme,
 	activeIndex,
 }: {
-	item: TCrousal;
+	item: TUrlVideoItem;
 	index: number;
 	theme: MD3CustomTheme;
 	activeIndex: number;
@@ -32,9 +35,6 @@ export const AnimatedCrousalItem = ({
 	const [isFront, setIsFront] = React.useState(true);
 	const videoPlayerRef = React.useRef<VideoRef>(null);
 	const rotation = useSharedValue(0);
-
-	const CARD_HEIGHT = SCREEN_HEIGHT * 0.5;
-	const CARD_WIDTH = SCREEN_WIDTH * 0.8;
 
 	React.useEffect(() => {
 		if (activeIndex !== index) {
