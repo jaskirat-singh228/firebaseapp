@@ -7,6 +7,7 @@ import AnimationDemoScreen from 'screens/animations/AnimationDemoScreen';
 import AppWelcomeAnimationScreen from 'screens/animations/app_welcome';
 import BottomTabDashBoardScreen from 'screens/bottom_tab_dash_board';
 import ContactScreen from 'screens/device_contacts';
+import LocationScreen from 'screens/device_location';
 import KeyBoardControllerScreen from 'screens/keyboard_controller';
 import NativeModuleScreen from 'screens/native_modules';
 import ReducerScreen from 'screens/reducer';
@@ -65,6 +66,7 @@ const AppNavigator: React.FC = () => {
 			/>
 			<Stack.Screen name={'AnimationDemoScreen'} component={AnimationDemoScreen} />
 			<Stack.Screen name={'ContactScreen'} component={ContactScreen} />
+			<Stack.Screen name={'LocationScreen'} component={LocationScreen} />
 		</Stack.Navigator>
 	);
 };

@@ -22,6 +22,7 @@ export type AppStackParamList = {
 			| 'animated_crousal';
 	};
 	ContactScreen: undefined;
+	LocationScreen: undefined;
 };
 
 export type AuthenticationStackParamList = {

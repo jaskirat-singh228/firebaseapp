@@ -1,10 +1,12 @@
+import Geolocation from '@react-native-community/geolocation';
 import crashlytics from '@react-native-firebase/crashlytics';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import AnimatedLoaderButton from 'components/molecules/animated_loader_button';
+import { useDialog } from 'context/app_dialog_provider';
 import { useFirebaseNotifications } from 'hooks/firebase/useFirebaseNotifications';
-import React from 'react';
-import { ScrollView, StyleSheet, View } from 'react-native';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
+import { AppState, Linking, ScrollView, StyleSheet, View } from 'react-native';
 import { MaterialBottomTabScreenProps } from 'react-native-paper';
 import { AppStackParamList, BottomTabNavigatorParamList } from 'types/navigation_types';
 import { AnalyticEvent } from 'utilities/analytic_event';
@@ -16,9 +18,25 @@ type HomeScreenProps = MaterialBottomTabScreenProps<BottomTabNavigatorParamList,
 
 type TButton = { id: number; title: string };
 
+export type TLocationCoords = {
+	latitude: number;
+	longitude: number;
+	altitude: number | null;
+	accuracy: number;
+	altitudeAccuracy: number | null;
+	heading: number | null;
+	speed: number | null;
+};
+
+export type GeolocationResponse = {
+	coords: TLocationCoords;
+	timestamp: number;
+};
+
 const HomeScreen: React.FC<HomeScreenProps> = () => {
 	// initialize firebase messaging
 	useFirebaseNotifications();
+	const { showDialog, hideDialog } = useDialog();
 	const appStackParamList = useNavigation<NativeStackNavigationProp<AppStackParamList>>();
 
 	React.useEffect(() => {
@@ -40,6 +58,47 @@ const HomeScreen: React.FC<HomeScreenProps> = () => {
 	//   , '<<<<<<<<<<after');
 	// }, []);
 
+	const appState = useRef(AppState.currentState);
+	const [appStateVisible, setAppStateVisible] = useState(appState.current);
+
+	useEffect(() => {
+		const subscription = AppState.addEventListener('change', (nextAppState) => {
+			if (appState.current.match(/inactive|background/) && nextAppState === 'active') {
+				console.log('App has come to the foreground!');
+			}
+
+			appState.current = nextAppState;
+			setAppStateVisible(appState.current);
+			console.log('AppState', appState.current);
+		});
+
+		return () => {
+			subscription.remove();
+		};
+	}, []);
+
+	const getLocationPermission = useCallback(() => {
+		if (appStateVisible === 'active') {
+			Geolocation.requestAuthorization(() => {
+				appStackParamList.navigate('LocationScreen');
+				hideDialog();
+				() => {
+					showDialog({
+						title: 'Required Location Access',
+						message: 'Do you want to allow location?',
+						actionType: 'error',
+						isConfirmDestructive: true,
+						onConfirm: async () => {
+							Linking.openSettings();
+							hideDialog();
+						},
+						onDismiss: hideDialog,
+					});
+				};
+			});
+		}
+	}, [appStateVisible]);
+
 	const buttonList: TButton[] = [
 		{ id: 1, title: 'Analytic Button' },
 		{ id: 2, title: 'Crashlytic Button' },
@@ -49,9 +108,10 @@ const HomeScreen: React.FC<HomeScreenProps> = () => {
 		{ id: 6, title: 'Animations' },
 		{ id: 7, title: 'Top Tab Bars' },
 		{ id: 8, title: 'Device Contacts' },
+		{ id: 9, title: 'Device Location' },
 	];
 
-	const handleButtonPress = (button: TButton) => {
+	const handleButtonPress = async (button: TButton) => {
 		switch (button.title) {
 			case 'Analytic Button':
 				AnalyticEvent({
@@ -86,6 +146,8 @@ const HomeScreen: React.FC<HomeScreenProps> = () => {
 			case 'Device Contacts':
 				appStackParamList.navigate('ContactScreen');
 				return;
+			case 'Device Location':
+				getLocationPermission();
 			default:
 				return '';
 		}

@@ -115,6 +115,7 @@ export const InstagramStoryProgress = () => {
 				keyExtractor={(item) => item.id.toString()}
 				pagingEnabled
 				horizontal
+				scrollEnabled={false}
 				contentContainerStyle={{
 					height: CARD_HEIGHT,
 				}}
