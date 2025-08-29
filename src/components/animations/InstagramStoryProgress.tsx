@@ -17,7 +17,7 @@ import { SCREEN_WIDTH } from 'utilities/constants';
 import { ms } from 'utilities/scale_utils';
 import { urlList } from './AnimatedCrousal';
 
-const BAR_WIDTH = (SCREEN_WIDTH - ms(8) * (urlList.length - 2)) / urlList.length;
+const BAR_WIDTH = (SCREEN_WIDTH - ms(8) * (urlList.length - 1)) / urlList.length;
 
 export const InstagramStoryProgress = () => {
 	const theme = useTheme();
@@ -38,6 +38,7 @@ export const InstagramStoryProgress = () => {
 		runOnJS(setCurrentIndex)(index === urlList.length - 1 ? index : index + 1);
 		runOnJS(scrollToPosition)(index === urlList.length - 1 ? index : index + 1);
 	};
+
 	const animateIndex = (index: number) => {
 		if (index < 0) return;
 		if (currentIndex === 0) {
@@ -72,7 +73,7 @@ export const InstagramStoryProgress = () => {
 	return (
 		<FullScreenContainer>
 			<BackWithTitleHeader title='Instagram Story Progress' />
-			<View style={{ flexDirection: 'row' }}>
+			<View style={{ flexDirection: 'row', paddingLeft: ms(3) }}>
 				{barProgresses.map((p, index) => {
 					const animatedStyle = useAnimatedStyle(() => ({
 						width: interpolate(p.value, [0, 1], [0, BAR_WIDTH], 'clamp'),
@@ -85,7 +86,7 @@ export const InstagramStoryProgress = () => {
 							style={{
 								backgroundColor: theme.colors.backdrop,
 								height: ms(10),
-								marginHorizontal: ms(2),
+								marginRight: ms(3),
 								marginVertical: ms(20),
 								borderRadius: theme.radius.circle,
 								width: BAR_WIDTH,
