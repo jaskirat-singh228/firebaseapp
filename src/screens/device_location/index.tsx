@@ -4,10 +4,11 @@ import BaseText from 'components/base_components/base_text';
 import FullScreenContainer from 'components/hoc/full_screen_container';
 import { BackWithTitleHeader } from 'components/molecules/back_with_title_view';
 import React from 'react';
-import { View } from 'react-native';
 import { TLocationCoords } from 'screens/bottom_tab_dash_board/home';
 import { AppStackParamList } from 'types/navigation_types';
 import { showToast } from 'utilities/utils';
+
+// const google_map_key = 'GOOGLE_MAPS_API_KEY'; // paid
 
 type LocationScreenProps = NativeStackScreenProps<AppStackParamList, 'LocationScreen'>;
 
@@ -16,12 +17,8 @@ const LocationScreen: React.FC<LocationScreenProps> = () => {
 
 	React.useEffect(() => {
 		Geolocation.getCurrentPosition(
-			(position) => {
-				setLocation(position.coords);
-			},
-			(error) => {
-				showToast(error.message, 'error');
-			},
+			(position) => setLocation(position.coords),
+			(error) => showToast(error.message, 'error'),
 			{ enableHighAccuracy: true, timeout: 60000 },
 		);
 	}, []);
@@ -29,10 +26,31 @@ const LocationScreen: React.FC<LocationScreenProps> = () => {
 	return (
 		<FullScreenContainer>
 			<BackWithTitleHeader title='Location' />
-			<View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-				<BaseText>Latitude: {location?.latitude ?? ''}</BaseText>
-				<BaseText>Longitude: {location?.longitude ?? ''}</BaseText>
-			</View>
+			<BaseText>
+				{location
+					? `Lat: ${location.latitude}, Lon: ${location.longitude}`
+					: 'Fetching location...'}
+			</BaseText>
+			{/* <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+				<MapView
+					provider='google'
+					key={google_map_key}
+					style={{ flex: 1, width: '100%' }}
+					initialRegion={{
+						latitude: location?.latitude || 0,
+						longitude: location?.longitude || 0,
+						latitudeDelta: 0.0922,
+						longitudeDelta: 0.0421,
+					}}
+				>
+					<Marker
+						coordinate={{
+							latitude: location?.latitude || 0,
+							longitude: location?.longitude || 0,
+						}}
+					/>
+				</MapView>
+			</View> */}
 		</FullScreenContainer>
 	);
 };
