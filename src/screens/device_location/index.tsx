@@ -1,4 +1,4 @@
-import Geolocation, { GeolocationResponse } from '@react-native-community/geolocation';
+import Geolocation from '@react-native-community/geolocation';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import BaseText from 'components/base_components/base_text';
 import FullScreenContainer from 'components/hoc/full_screen_container';
@@ -11,35 +11,18 @@ import { showToast } from 'utilities/utils';
 
 type LocationScreenProps = NativeStackScreenProps<AppStackParamList, 'LocationScreen'>;
 
-const LocationScreen: React.FC<LocationScreenProps> = (props) => {
+const LocationScreen: React.FC<LocationScreenProps> = () => {
 	const [location, setLocation] = React.useState<TLocationCoords | null>(null);
 
 	React.useEffect(() => {
 		Geolocation.getCurrentPosition(
-			(position: GeolocationResponse) => {
-				const {
-					latitude,
-					longitude,
-					altitude,
-					accuracy,
-					altitudeAccuracy,
-					heading,
-					speed,
-				} = position.coords;
-				setLocation({
-					latitude,
-					longitude,
-					altitude,
-					accuracy,
-					altitudeAccuracy,
-					heading,
-					speed,
-				});
+			(position) => {
+				setLocation(position.coords);
 			},
 			(error) => {
 				showToast(error.message, 'error');
 			},
-			{ enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 },
+			{ enableHighAccuracy: true, timeout: 60000 },
 		);
 	}, []);
 
@@ -47,8 +30,8 @@ const LocationScreen: React.FC<LocationScreenProps> = (props) => {
 		<FullScreenContainer>
 			<BackWithTitleHeader title='Location' />
 			<View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-				<BaseText>Latitude: {location?.latitude}</BaseText>
-				<BaseText>Longitude: {location?.longitude}</BaseText>
+				<BaseText>Latitude: {location?.latitude ?? ''}</BaseText>
+				<BaseText>Longitude: {location?.longitude ?? ''}</BaseText>
 			</View>
 		</FullScreenContainer>
 	);

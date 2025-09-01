@@ -5,8 +5,8 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import AnimatedLoaderButton from 'components/molecules/animated_loader_button';
 import { useDialog } from 'context/app_dialog_provider';
 import { useFirebaseNotifications } from 'hooks/firebase/useFirebaseNotifications';
-import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { AppState, Linking, ScrollView, StyleSheet, View } from 'react-native';
+import React, { useCallback } from 'react';
+import { Linking, ScrollView, StyleSheet, View } from 'react-native';
 import { MaterialBottomTabScreenProps } from 'react-native-paper';
 import { AppStackParamList, BottomTabNavigatorParamList } from 'types/navigation_types';
 import { AnalyticEvent } from 'utilities/analytic_event';
@@ -58,46 +58,26 @@ const HomeScreen: React.FC<HomeScreenProps> = () => {
 	//   , '<<<<<<<<<<after');
 	// }, []);
 
-	const appState = useRef(AppState.currentState);
-	const [appStateVisible, setAppStateVisible] = useState(appState.current);
-
-	useEffect(() => {
-		const subscription = AppState.addEventListener('change', (nextAppState) => {
-			if (appState.current.match(/inactive|background/) && nextAppState === 'active') {
-				console.log('App has come to the foreground!');
-			}
-
-			appState.current = nextAppState;
-			setAppStateVisible(appState.current);
-			console.log('AppState', appState.current);
-		});
-
-		return () => {
-			subscription.remove();
-		};
-	}, []);
-
 	const getLocationPermission = useCallback(() => {
-		if (appStateVisible === 'active') {
-			Geolocation.requestAuthorization(() => {
+		Geolocation.requestAuthorization(
+			() => {
 				appStackParamList.navigate('LocationScreen');
 				hideDialog();
-				() => {
-					showDialog({
-						title: 'Required Location Access',
-						message: 'Do you want to allow location?',
-						actionType: 'error',
-						isConfirmDestructive: true,
-						onConfirm: async () => {
-							Linking.openSettings();
-							hideDialog();
-						},
-						onDismiss: hideDialog,
-					});
-				};
-			});
-		}
-	}, [appStateVisible]);
+			},
+			() => {
+				showDialog({
+					title: 'Required Location Access',
+					message: 'Do you want to allow location?',
+					actionType: 'error',
+					onConfirm: async () => {
+						Linking.openSettings();
+						hideDialog();
+					},
+					onDismiss: hideDialog,
+				});
+			},
+		);
+	}, []);
 
 	const buttonList: TButton[] = [
 		{ id: 1, title: 'Analytic Button' },
@@ -148,6 +128,7 @@ const HomeScreen: React.FC<HomeScreenProps> = () => {
 				return;
 			case 'Device Location':
 				getLocationPermission();
+				break;
 			default:
 				return '';
 		}
