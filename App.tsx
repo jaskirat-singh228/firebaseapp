@@ -6,6 +6,7 @@ import { ThemeProvider, useThemeContext } from 'context/theme_provider';
 import RootNavigator from 'navigation/root_navigator';
 import React from 'react';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { KeyboardProvider } from 'react-native-keyboard-controller';
 import { PaperProvider } from 'react-native-paper';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import Toast, { ErrorToast, SuccessToast, ToastConfig } from 'react-native-toast-message';
@@ -110,11 +111,11 @@ const App: React.FC = () => {
 	return (
 		<QueryClientProvider client={queryClient}>
 			<GestureHandlerRootView>
-				{/* <KeyboardProvider> */}
-				<ThemeProvider>
-					<MainApp />
-				</ThemeProvider>
-				{/* </KeyboardProvider> */}
+				<KeyboardProvider>
+					<ThemeProvider>
+						<MainApp />
+					</ThemeProvider>
+				</KeyboardProvider>
 			</GestureHandlerRootView>
 		</QueryClientProvider>
 	);

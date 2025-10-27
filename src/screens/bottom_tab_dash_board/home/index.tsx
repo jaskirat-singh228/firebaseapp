@@ -8,11 +8,11 @@ import { useFirebaseNotifications } from 'hooks/firebase/useFirebaseNotification
 import React, { useCallback } from 'react';
 import { Linking, ScrollView, StyleSheet, View } from 'react-native';
 import { MaterialBottomTabScreenProps } from 'react-native-paper';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { AppStackParamList, BottomTabNavigatorParamList } from 'types/navigation_types';
 import { AnalyticEvent } from 'utilities/analytic_event';
 import { SCREEN_WIDTH } from 'utilities/constants';
 import { ms, vs } from 'utilities/scale_utils';
-// Make sure this path points to your actual Redux store file where RootState is defined
 
 type HomeScreenProps = MaterialBottomTabScreenProps<BottomTabNavigatorParamList, 'HomeScreen'>;
 
@@ -34,9 +34,9 @@ export type GeolocationResponse = {
 };
 
 const HomeScreen: React.FC<HomeScreenProps> = () => {
-	// initialize firebase messaging
 	useFirebaseNotifications();
 	const { showDialog, hideDialog } = useDialog();
+	const { top } = useSafeAreaInsets();
 	const appStackParamList = useNavigation<NativeStackNavigationProp<AppStackParamList>>();
 
 	React.useEffect(() => {
@@ -135,7 +135,15 @@ const HomeScreen: React.FC<HomeScreenProps> = () => {
 	};
 
 	return (
-		<ScrollView style={style.mainContainer}>
+		<ScrollView
+			style={style.mainContainer}
+			contentContainerStyle={{
+				padding: ms(15),
+				paddingTop: top,
+				paddingBottom: ms(80),
+				backgroundColor: '#FFFFFF',
+			}}
+		>
 			<View style={style.container}>
 				{buttonList.map((button: TButton) => (
 					<AnimatedLoaderButton
@@ -157,11 +165,8 @@ const style = StyleSheet.create({
 	mainContainer: {
 		flex: 1,
 		width: '100%',
-		backgroundColor: '#F5F5F5',
-		padding: ms(15),
 	},
 	container: {
-		width: '100%',
 		gap: vs(10),
 		alignItems: 'center',
 		paddingBottom: ms(100),

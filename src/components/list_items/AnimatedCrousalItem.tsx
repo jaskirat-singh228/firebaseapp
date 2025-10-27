@@ -116,7 +116,7 @@ export const AnimatedCrousalItem = ({
 							borderRadius: theme.radius.large,
 						},
 					]}
-					pointerEvents={isFront ? 'auto' : 'none'} // 👈 only active when front
+					pointerEvents={isFront ? 'auto' : 'none'}
 				>
 					<BaseText
 						style={[theme.fonts.displayLarge, { color: theme.colors.textColor.white }]}
@@ -127,7 +127,6 @@ export const AnimatedCrousalItem = ({
 
 				{/* Back Side */}
 				<AnimatedPressable
-					onPress={handleBackCardPress}
 					style={[
 						backStyle,
 						{
@@ -136,10 +135,9 @@ export const AnimatedCrousalItem = ({
 							width: CARD_WIDTH,
 							alignItems: 'center',
 							justifyContent: 'center',
-							// backfaceVisibility: 'hidden',
 						},
 					]}
-					pointerEvents={!isFront ? 'auto' : 'none'} // 👈 only active when front
+					pointerEvents={!isFront ? 'auto' : 'none'}
 				>
 					<Pressable
 						onPress={handleBackCardPress}
